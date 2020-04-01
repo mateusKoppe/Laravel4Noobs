@@ -6,30 +6,33 @@ O primeiro passo para começar a codar é usar o composer para criar o seu proje
 composer create-project --prefer-dist laravel/laravel [nome-do-projeto]
 ```
 
-Esse comando irá gerar todos a estrutura de pastas, arquivos e instalará as dependências para iniciar seu projeto.
+Esse comando irá gerar todos a estrutura de pastas, arquivos, instalará as dependências e irá gerar uma pré-configuração de ambiente para iniciar seu projeto.
 
-<!--
- TODO: O conteúdo abaixo é desnecesário para instalação usando composer, mas será necessário quando clonar um projeto, o ideal seria criar uma nova sessão chamada "Iniciando em projeto já existente"
--->
+Certifique-se de que você possui o arquivo `.env` e de que a variável `APP_KEY` foi preenchida.
 
-Quando a instalação estiver concluída você deverá gerar uma chave para o projeto, para isso digite:
+Caso o arquivo `.env` não exista você precisará criar-lo manualmente, para isso basta copiar o arquivo `.env.example` para o novo arquivo `.env`.
+
+Você pode fazer isso da forma que se sentir mais confortável ou utilizando o comando `cp` do padrão unix:
+```bash
+cp .env.example .env
+```
+
+> O arquivo `.env` não é trackeado pelo git, o  que significa que toda vez que você fazer um clone de algum projeto já existente de Laravel você precisará gerar esse arquivo com base no arquivo `.env.example` como citado acima.
+
+Caso você tenha criado um novo arquivo `.env` ou percebeu que o `.env` gerado não possúi a variável `APP_KEY` você terá que gerar uma nova `APP_KEY`, para isso a forma mais indicada é executando o seguinte comando:
 
 ```bash
 php artisan key:generate
 ```
 
-> Repare que estamos `artisan` para gerar essa chave, `artisan` é uma ferramenta que nos ajudará muito em nosso projetos, para saber mais sobre ele leia: [Link sobre artisan]()
+> Repare que estamos utilizando `artisan` para gerar essa chave, `artisan` é uma ferramenta que nos ajudará muito em nosso projetos, para saber mais sobre ele leia: [Link sobre artisan]()
 
-Você pode conferir a chave gerada no arquivo `.env`, esse é o arquivo que irá configurar as variáveis de ambiente do projeto.
+Agora abra o arquivo `.env`, confira a chave gerada, e configure as outras variáveis de acordo com seu ambiente como por exemplo as variáveis de banco de dados.
 
-Agora abra o arquivo `.env`, confira a chave gerada, e configure as outras variáveis de acordo com seu ambiente.
-
-> O arquivo `.env` não é trackeado pelo git, o  que significa que toda vez que você fazer um clone de alguém projeto já existente de Laravel você precisará gerar esse arquivo, para gerar esse arquivo basta criar uma cópia do arquivo `.env.example` com o nome de `.env`.
-
-Quando tudo estiver configurado é só botar para rodar, para isso execute o comando:
+Tudo configurado é só botar para rodar, para isso execute o comando:
 
 ```bash
 php artisan serve
 ```
 
-E prontinho, você iniciou um projeto Laravel ;D
+Por padrão o programa iniciará na porta `:8080`, agora basta acessar [http://localhost:8080](http://localhost:8080) e prontinho, você iniciou um projeto Laravel ;D
