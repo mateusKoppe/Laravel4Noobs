@@ -22,9 +22,8 @@ Em progresso...
 1. [Preparando ambiente](./2-Configurando-ambiente/1-Preparando-ambiente.md)
 2. [Criando Projeto](./2-Configurando-ambiente/2-Criando-projeto.md)
 
-
-### Módulo Básico
-Em progresso...
+### Conceitos básicos
+1. [Se familiarizando com a estrutura de pastas](1-Estrutura-de-pastas.md)
 
 ## Como Contribuir
 
