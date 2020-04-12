@@ -22,8 +22,9 @@ Em progresso...
 1. [Preparando ambiente](./2-Configurando-ambiente/1-Preparando-ambiente.md)
 2. [Criando Projeto](./2-Configurando-ambiente/2-Criando-projeto.md)
 
-### Conceitos básicos
-1. [Se familiarizando com a estrutura de pastas](1-Estrutura-de-pastas.md)
+### Conceitos
+1. [Se familiarizando com a estrutura de pastas](./3-Conceitos-basicos/1-Estrutura-de-pastas.md)
+2. [Configurando rotas](./3-Conceitos-basicos/2-Rotas.md)
 
 ## Como Contribuir
 

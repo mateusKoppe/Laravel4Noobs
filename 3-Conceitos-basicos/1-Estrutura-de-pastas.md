@@ -69,6 +69,8 @@ Essa pasta contém todas as suas views, o seus assets não compilados como JavaS
 ### A pasta `routes`
 Aqui estarão os arquivos de configuração das rotas de sua aplicação, os 4 arquivos geralmente são `api.php`, `channels.php`, `console.php` e `web.php`.
 
+Você pode aprender mais sobre rotas na sessão: [Configurando rotas](./2-Rotas.md).
+
 ### A pasta `storage`
 Essa pasta é dividida em 3 pastas: `app/`, `framework/`, `logs/`.
 
@@ -85,4 +87,4 @@ A pasta `tests` contém os testes automatizados de sua aplicação. Inicialmente
 Além disso o Laravel também possuí outras pastas que não vem inicialmente na aplicação mas podem ser fácilmente criadas.
 
 
-Agora que você já sabe para o que serve as pastas inicias do seu projeto é só seguir no tutorial =D
+Agora que você já sabe para o que serve as pastas você já pode seguir para a próxima etapa do tutorial: [Configurando rotas](./2-Rotas.md)
