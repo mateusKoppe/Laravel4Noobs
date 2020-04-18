@@ -21,10 +21,16 @@ Em progresso...
 ### Configurando Ambiente
 1. [Preparando ambiente](./2-Configurando-ambiente/1-Preparando-ambiente.md)
 2. [Criando Projeto](./2-Configurando-ambiente/2-Criando-projeto.md)
+3. [Entendendo Artisan](./2-Configurando-ambiente/3-Artisan.md)
 
 ### Conceitos
 1. [Se familiarizando com a estrutura de pastas](./3-Conceitos-basicos/1-Estrutura-de-pastas.md)
-2. [Configurando rotas](./3-Conceitos-basicos/2-Rotas.md)
+1. [Configurando rotas](./3-Conceitos-basicos/2-Rotas.md)
+1. [Criando controllers](./3-Conceitos-basicos/3-Controllers.md)
+1. [Views com blade](./3-Conceitos-basicos/4-Views-blade.md)
+1. [Estruturando o banco de dados com migrations](./3-Conceitos-basicos/5-migrations.md)
+1. [Models com Eloquent](./3-Conceitos-basicos/6-models-eloquent.md)
+1. [Usando e criando middlewares](./3-Conceitos-basicos/7-middlewares.md)
 
 ## Como Contribuir
 
