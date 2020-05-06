@@ -147,3 +147,5 @@ $url = route('products', ['id' => 1, 'photos' => true]);
 
 // /produtos/1?photos=1
 ```
+
+Com um entendimento de rodas você já pode seguir para a próxima etapa do tutorial:  [Criando controllers](./3-Controllers.md)

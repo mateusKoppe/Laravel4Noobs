@@ -2,63 +2,55 @@
 
 Com o conceito de rotas dominado, chegou a hora de entendermos como funcionam os Controllers.
 
-Usamos controllers para não precisar usar funções anônimas em todas as rotas, com eles podemos organizar melhor o comportamento de nossas rotas em classes.
+Controller são usados para organizar melhor o código do projeto, com controllers é possível criar classes, métodos e isolar muito melhor o código em seu escopo, além de nos dar acesso a várias facilidades que estão listadas no decorrer desse capítulo,
 
-Antes tinhamos essa rota:
+Uma rota usando uma função anônima:
 ```php
 Route::get('/products', function () {
     return ['Produto A', 'Produto B', 'Produto C'];
 });
 ```
 
-Agora usando controllers poderemos resumir essa rota a:
+Aqui não parece ser um problema, é apenas uma linha, mas imagine se esse método precisar de várias linhas de lógica, o código pode ficar bem bagunçado dessa forma no meio de todas as outras rotas, por isso é uma melhor ideia usar as rotas apenas para mapear URIs e ações de controllers:
 
+Com isso em mente sabemos que é uma melhor mapear a rota da seguinte forma:
 ```php
 Route::get('/products', 'ProductController@index');
 ```
 
-e atribuir toda a lógica disso no controller, assim conseguimos manter nosso código mais organizado.
+E com isso basta desenvolver a ação `index` dentro do controller `ProductController`.
 
 ### Criando controllers
-Por padrão os controllers de aplicações Laravel ficam na pasta `App/Http/Controllers`, geralmente tem o nome em singular e tem o nome finalizado em `Controller` como por exemplo `UserController` ou `ProductController`.
+Por padrão os controllers de aplicações Laravel ficam na pasta `App/Http/Controllers`, eles geralmente tem o nome em singular e finalizado em `Controller` como por exemplo `UserController` ou `ProductController`.
 
-Para você criar um controller basta apenas você criar uma classe seguindo as convenções acima e extender a classe `App/Http/Controllers/Controller`, com apenas isso você já tem um controller. Confira o exemplo no código abaixo:
+A forma mais produtivo de criar um controller é utilizando o cli Artisan e a função `make:controller`, configura o exemplo abaixo:
+
+```bash
+php artisan make:controller ProductController
+```
+
+Com isso o Laravel irá automáticamente gerar o arquivo `App/Http/Controllers/ProductController.php` com o seguinte código:
 
 ```php
-// App/Http/Controllers/ProductController.php
-
 <?php
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
-    {
-        return ['Produto A', 'Produto B', 'Produto C'];
-    }
+    //
 }
 ```
 
-Caso você queira ser mais produtivo e prefira usar as facilidades do cli Artisan usando a função `make:controller`, basta executar o comando abaixo, com isso você irá criar um controller tal qual o exibido anteriormente:
-
-```bash
-php artisan make:controller <nome-do-controller>
-
-#ex:
-
-php artisan make:controller ProductController
-```
-
-E para mepear as rodas com os métodos do nosso conntroller é só usar a seguinte configuração:
+para mapear as rotas com os métodos do controller é só usar a seguinte notação:
 
 ```php
-Route::get('/products', 'ProductController@index');
+Route::get('products', 'ProductController@index');
 ```
 
-> Repare que estamos passando somente o nome do controller, não precisamos especificar todo o seu namespace, apenas o que vem depois de `App/Http/Controllers`, e após isso usados `@` para indicar o método que queremos mapear, com isso toda a configuração foi feita.
+> Repare que somente o nome do controller é passado, não é preciso especificar todo o seu namespace, apenas o que vem depois de `App/Http/Controllers`, e após o nome do controller ser informado é só informar o método com o sinal `@`.
 
 Agora toda vez que alguma requisição combinar com o path `/products` o método `index` do controller `ProductController` será executado.
 
@@ -66,8 +58,6 @@ Agora toda vez que alguma requisição combinar com o path `/products` o método
 Caso você tenha apenas um método para um controller, como por exemplo uma página home, sobre ou algo semelhante você pode usar um controller de única ação, para isso basta usar o método `__invoke`:
 
 ```php
-// App/Http/Controllers/HomeController
-
 <?php
 
 namespace App\Http\Controllers;
@@ -83,45 +73,54 @@ class HomeController extends Controller
 }
 ```
 
-E na rota é só chamar o controller:
+E na rota é só chamar o controller sem nenhum método:
 
 ```php
 Route::get('/home', 'HomeController');
 ```
 
-Você também pode usar o Artisan para facilitar sua vida com isso, para isso basta passar o parametro `--invokable`:
+Você também pode usar o Artisan para facilitar sua vida com isso, para isso basta passar o parametro `--invokable` como no exemplo abaixo:
 
 ```bash
-php artisan make:controller <nome-do-controller> --invokable
-
-# ex:
 php artisan make:controller HomeController --invokable
 ```
 
 ### Controller resource
 Como quase todos os controllers trabalham no padrão CRUD (Create, Read, Update, Delete) o Laravel implementa um padrão de controller chamado resource que padroniza essas operações.
 
-Com esse padrão trabalhamos com 7 métodos, sendo eles:
+Com esse padrão trabalhamos com 7 ações, sendo elas:
 - Index:  
-É nesse método que serão listados os items do CRUD. O seu URI é `/<path>` e o verbo HTTP é `GET`;
+É nessa ação que serão listados os items do CRUD. O seu URI é `/<path>` e o verbo HTTP é `GET`;
 
 - Create:  
-É nesse método que será exido o formuário para a criação de um novo item. O seu URI é `/<path>/create` e o verbo HTTP é `GET`;
+É nessa ação que será exido o formuário para a criação de um novo item. O seu URI é `/<path>/create` e o verbo HTTP é `GET`;
 
 - Store:  
-É nesse método que o formuário para de criação será salvo. O seu URI é `/<path>` e o verbo HTTP é `POST`;
+É nessa ação que o formuário para de criação será salvo. O seu URI é `/<path>` e o verbo HTTP é `POST`;
 
 - View:  
-É nesse método que será exibido mais informações sobre um item individualmente. O seu URI é `/<path>/<id>` e o verbo HTTP é `GET`;
+É nessa ação que será exibido mais informações sobre um item individualmente. O seu URI é `/<path>/<id>` e o verbo HTTP é `GET`;
 
 - Edit:  
-É nesse método que será exido o formuário para a edição de item. O seu URI é `/<path>/<id>/edit` e o verbo HTTP é `GET`;
+É nessa ação que será exido o formuário para a edição de item. O seu URI é `/<path>/<id>/edit` e o verbo HTTP é `GET`;
 
 - Update:  
-É nesse método que o formuário para de atualização será salvo. O seu URI é `/<path>/<id>` e o verbo HTTP é `PUT`;
+É nessa ação que o formuário para de atualização será salvo. O seu URI é `/<path>/<id>` e o verbo HTTP é `PUT`;
 
 - Destroy:  
-É nesse método que o item será excluido. O seu URI é `/<path>/<id>` e o verbo HTTP é `DELETE`;
+É nessa ação que o item será excluido. O seu URI é `/<path>/<id>` e o verbo HTTP é `DELETE`;
+
+A forma mais fácil de criar um controller resource é utilizar a função `make:controller` com o parâmetro `--resource` do Artisan, siga o exemplo abaixo:
+
+```bash
+php artisan make:controller ProductController --resource
+```
+
+E a melhor parte, para mapear com as rotas basta usar o método `resource` da classe `Route` e todas as 7 ações serão mapeadas automáticamente:
+
+```php
+Route::resource('products', 'ProductController');
+```
 
 E os nomes das rotas será por padrão `<nome-do-resource>.<metodo>`.
 
@@ -137,26 +136,44 @@ Confira a tabela abaixo pra um exemplo de um resource para Produtos:
 |PUT/PATCH | /products/{id}      | update  | products.update |
 |DELETE    | /products/{id}      | destroy | products.destroy|
 
-A forma mais fácil de criad um controller resource é utilizar a função `make:controller` com `--resource` do Artisan, siga o exemplo abaixo:
+#### Controller Resource parcial
+Caso você não precise de todos os métodos do resource você pode utilizara o método `only` ou `except`.
 
-```bash
-php artisan make:controller <nome-do-controller> --resource
-
-# Ex:
-php artisan make:controller ProductController --resource
+Use o método `only` para deixar explicito apenas quais métodos você quer usar:
+```php
+Route::resource('photos', 'PhotoController')->only([
+    'index', 'show'
+]);
 ```
 
-E agora a melhor parte, para mapear com as rotas basta usar o método `resource` da classe `Route`:
+O método `except` faz exatamento ao contrário, use ele para excluir os método que você não pretende usar:
 
 ```php
-Route::resource('<path>', '<controller>');
-
-#ex
-Route::resource('products', 'ProductController');
+Route::resource('photos', 'PhotoController')->except([
+    'create', 'store', 'update', 'destroy'
+]);
 ```
 
-E com isso já está tudo configurado.
+#### API Resource
+Está desenvolvendo uma API? Se for o caso você não vai precisar dos métodos `create` e `edit`, mas você não precisa excluir eles manualmente, quando for crir o controller com Artisan basta usar o parametro `--api`:
 
-### Controller resource parcial
-### Resource aninhados
-### Traduzindo URL de rota resource
+```bash
+php artisan make:controller API/UserController --api
+```
+
+Com isso o controller criado irá implementar apenas as ações necessárias para desenvolver uma API e na rota basta usar o método `apiResource`:
+
+```php
+Route::apiResource('users', 'API/UserController');
+```
+
+#### Resource relacionados
+Eventualmente você pode precisar definir uma rota que é filha de outra, como por exemplo comentários que pertecem a postagens, em casos como esses você vai precisar usar resource aninhados, para isso basta colocar um ponto `.` entre o nome do resource pai e o resource filho e com isso o Laravel já configurará as rotas automáticamente:
+
+```php
+Route::resource('posts.comments', 'PostCommentController');
+```
+
+Com isso as rotas geradas seguirão o seguinte padrão:
+
+`/posts/{post}/comments/{comment}`
