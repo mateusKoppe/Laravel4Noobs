@@ -16,21 +16,20 @@ Em progresso...
 ## ROADMAP
 
 ### Introdução
-Em progresso...
-
-### Configurando Ambiente
-1. [Preparando ambiente](./2-Configurando-ambiente/1-Preparando-ambiente.md)
-2. [Criando Projeto](./2-Configurando-ambiente/2-Criando-projeto.md)
-3. [Entendendo Artisan](./2-Configurando-ambiente/3-Artisan.md)
+1. [Sobre o Laravel](1-Introducao/1-Sobre.md)
+1. [Preparando ambiente](1-Introducao/2-Preparando-ambiente.md)
+1. [Criando Projeto](1-Introducao/3-Criando-projeto.md)
+1. [Entendendo Artisan](1-Introducao/4-Artisan.md)
 
 ### Conceitos
-1. [Se familiarizando com a estrutura de pastas](./3-Conceitos-basicos/1-Estrutura-de-pastas.md)
-1. [Configurando rotas](./3-Conceitos-basicos/2-Rotas.md)
-1. [Criando controllers](./3-Conceitos-basicos/3-Controllers.md)
-1. [Views com blade](./3-Conceitos-basicos/4-Views-blade.md)
-1. [Estruturando o banco de dados com migrations](./3-Conceitos-basicos/5-migrations.md)
-1. [Models com Eloquent](./3-Conceitos-basicos/6-models-eloquent.md)
-1. [Usando e criando middlewares](./3-Conceitos-basicos/7-middlewares.md)
+1. [Se familiarizando com a estrutura de pastas](./2-Conceitos/1-Estrutura-de-pastas.md)
+1. [Configurando rotas](./2-Conceitos/2-Rotas.md)
+1. [Criando controllers](./2-Conceitos/3-Controllers.md)
+1. [Views com blade](./2-Conceitos/4-Views-blade.md)
+1. [Estruturando o banco de dados com migrations](./2-Conceitos/5-migrations.md)
+1. [Models com Eloquent](./2-Conceitos/6-models-eloquent.md)
+1. [Entendendo Request e Response](./2-Conceitos/7-request-response.md)
+1. [Usando e criando middlewares](./2-Conceitos/8-middlewares.md)
 
 ## Como Contribuir
 

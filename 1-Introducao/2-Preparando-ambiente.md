@@ -51,7 +51,7 @@ E por fim é só acessar o banco de dados e ver funcionando:
 mysql -u root -p
 ```
 
-E é isso aí, agora que seu ambiente está configurado é hora de seguir o turorial e seguir para a sessão: [Criando Projeto](./2-Criando-projeto.md).
+E é isso aí, agora que seu ambiente está configurado é hora de seguir o turorial e seguir para a sessão: [Criando Projeto](./3-Criando-projeto.md).
 
 ### 1.2 Windows
 Contribua para esse projeto escrevendo sobre como rodar o Laravel no Windows.
