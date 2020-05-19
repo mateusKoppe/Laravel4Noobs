@@ -1,4 +1,4 @@
-## 3.2 Controllers
+## 3.3 Controllers
 
 Com o conceito de rotas dominado, chegou a hora de entendermos como funcionam os Controllers.
 
