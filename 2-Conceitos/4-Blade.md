@@ -33,14 +33,51 @@ return view('home', [
 ]);
 ```
 
-E para imprimir valores o Blade trabalha com um operador que você já pode estar familiarizado que é o `{{ }}`. Então você pode imprimir a variável `name` passada para a view da seguinte forma:
+Para imprimir valores o Blade trabalha com um operador que você já pode estar familiarizado que é o `{{ }}`. Então você pode imprimir a variável `name` passada para a view da seguinte forma:
 
 ```html
 <p> Olá {{ $name }}. </p>
 ```
 
-E isso irá imprimir:
+Isso irá imprimir:
 
 ```html
 <p> Olá John. </p>
 ```
+
+### Templates
+Um dos principais benefícios de usar Blade é a possíbilidade de criar templates para herança. Com isso você pode montar um template principal e estender ele em outros templates trocando apenas o conteúdo da página e evitando repetição de código, confira o exemplo abaixo:
+
+```html
+<!-- resources/views/layouts/app.blade.php -->
+
+<html>
+    <head>
+        <title>App Name - @yield('title')</title>
+    </head>
+    <body>
+        <div class="container">
+            @yield('content')
+        </div>
+    </body>
+</html>
+```
+
+Observe no template o uso de `@yield`, marcadores como esse com inicias em `@` são chamados directivas.
+
+A directiva `@yield` é usada para determinar onde uma sessão será exibida, você vai usar a directiva `@section` para isso inserir o conteúdo nessa sessão.
+
+Para estender um template utilize a directiva `@extends`:
+
+```html
+<!-- resources/views/child.blade.php -->
+
+@extends('layouts.app')
+
+@section('title', 'Título da página')
+
+@section('content')
+    <p>Esse é o conteúdo da minha página.</p>
+@endsection
+```
+
