@@ -177,3 +177,5 @@ Route::resource('posts.comments', 'PostCommentController');
 Com isso as rotas geradas seguirão o seguinte padrão:
 
 `/posts/{post}/comments/{comment}`
+
+E agora que você concluiu mais um capitulo do tutorial já pode dar sequencia no próxima capitulo:  [Views com blade](./4-Views-blade.md)
