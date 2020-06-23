@@ -215,3 +215,5 @@ Você pode conferir mais sobre a variável `$loop` na descrição abaixo:
 | $loop->odd       |  	Quando é o número de iteração é ímpar.                 |
 | $loop->depth     |  	O nível the profundidade do loop.                      |
 | $loop->parent    |  	O `$loop` do loop pái quando esse loop é um filho      |
+
+Com esse capitulo concluído você pode dar sequencia no próxima:  [Views com blade](./5-Migrations.md)

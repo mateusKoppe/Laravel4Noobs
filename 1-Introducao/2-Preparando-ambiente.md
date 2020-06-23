@@ -58,3 +58,5 @@ Contribua para esse projeto escrevendo sobre como rodar o Laravel no Windows.
 
 ### 1.1 OSX
 Contribua para esse projeto escrevendo sobre como rodar o Laravel no OSX.
+
+Agora que você tem o seu ambiente configurado já tem tudo para criar o seu projeto: [Criando o Projeto](./3-Criando-projeto.md)
