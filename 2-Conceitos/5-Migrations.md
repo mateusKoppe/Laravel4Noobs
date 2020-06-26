@@ -130,4 +130,4 @@ Então quando rodamos o comando, `php artisan migrate`, por exemplo, estamos rod
 
 Caso queira rodar uma migração novamente é necessário executar os comandos `php artisan migrate:rollback` ou `php artisan migrate:reset`
 
-E agora que você concluiu mais um capitulo do tutorial já pode dar sequencia no próxima capitulo: [Models com eloquent](./6-models-eloquent.md)
+E agora que você concluiu mais um capitulo do tutorial já pode dar sequencia no próxima capitulo: [Models com eloquent](./6-Models-eloquent.md)
