@@ -76,7 +76,22 @@ Vamos primeiro abordar o método `up()`, o qual informamos a estrutura para cria
 
 
             // ...
-            // A Lista de possibilidades é grande, para criação desta tabela.
+            // A Lista de possibilidades é grande, para criação desta tabela (veja abaixo)
+        });
+
+        // Para utilização de chaves estrangeiras/relacionamento entre tabelas, pode fazer da seguinte forma.
+        Schema::create('nametable2', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            
+            // Declare anteriomente, o campo.
+            $table->unsignedBigInteger('tabela01_id');
+            // Apos isso ligue as duas tabelas, seguindo os seguintes paramêtros
+            // 1. Informe o campo da sua tabela atual, equivalente
+            // 2. Referencie o campo da outra tabela
+            // 3. Informe de qual tabela pertence esse campo estrangeiro.
+            $table->foreign('tabela01_id')->references('id')->on('nametable');
+
         });
     }
 
@@ -92,6 +107,68 @@ Já o método `down()`, é destinado para desfazer as alterações realizadas pe
 ```
 
 Neste exemplo o método `down()`, deleta a tabela, construida anteriormente.
+
+
+## Tipos suportados pelo laravel (com base na versão 7)
+
+| Comando                                            | Descrição                                                                                                                                 |
+|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| $table->id();                                      | Coluna equivalente  de .$table->bigIncrements('id')                                                                                                     |
+| $table->foreignId('user_id');                      | Coluna equivalente  de $table->unsignedBigInteger('user_id')                                                                                           |
+| $table->bigIncrements('id');                       | Coluna equivalente de $table->unsignedBigInteger(chavePrimária) de auto incremento.                                                          |
+| $table->bigInteger('votes');                       | Coluna equivalente BIGINT.                                                                                                                |
+| $table->binary('data');                            | Coluna equivalente a BLOB.                                                                                                                |
+| $table->boolean('confirmed');                      | Coluna equivalente BOOLEAN.                                                                                                               |
+| $table->char('name', 100);                         | Coluna equivalente CHAR com um tamanho.                                                                                               |
+| $table->date('created_at');                        | Coluna equivalente a DATE.                                                                                                                |
+| $table->dateTime('created_at', 0);                 | Coluna equivalente a DATETIME com precisão (dígitos totais).                                                                              |
+| $table->dateTimeTz('created_at', 0);               | Coluna equivalente a DATETIME (com fuso horário) com precisão (dígitos totais).                                                           |
+| $table->decimal('amount', 8, 2);                   | Coluna equivalente DECIMAL com precisão (dígitos totais) e escala (dígitos decimais).                                                     |
+| $table->double('amount', 8, 2);                    | Coluna equivalente DUPLA com precisão (dígitos totais) e escala (dígitos decimais).                                                       |
+| $table->enum('level', ['easy', 'hard']);           | Coluna equivalente ENUM.                                                                                                                  |
+| $table->float('amount', 8, 2);                     | Coluna equivalente FLOAT com precisão (dígitos totais) e escala (dígitos decimais).                                                       |
+| $table->geometry('positions');                     | Coluna equivalente de GEOMETRIA.                                                                                                          |
+| $table->geometryCollection('positions');           | Coluna equivalente a GEOMETRYCOLLECTION.                                                                                                  |
+| $table->increments('id');                          | Coluna equivalente com incremento automático de UNSIGNED INTEGER (chave primária).                                                        |
+| $table->integer('votes');                          | Coluna equivalente INTEGER.                                                                                                               |
+| $table->ipAddress('visitor');                      | Coluna equivalente ao endereço IP.                                                                                                        |
+| $table->json('options');                           | Coluna equivalente a JSON.                                                                                                                |
+| $table->jsonb('options');                          | Coluna equivalente a JSONB.                                                                                                               |
+| $table->lineString('positions');                   | Coluna equivalente LINESTRING.                                                                                                            |
+| $table->longText('description');                   | Coluna equivalente LONGTEXT.                                                                                                              |
+| $table->macAddress('device');                      | Coluna equivalente ao endereço MAC.                                                                                                       |
+| $table->mediumIncrements('id');                    | Coluna equivalente UNSIGNED MEDIUMINT (chave primária) de incremento automático.                                                          |
+| $table->mediumInteger('votes');                    | Coluna equivalente MEDIUMINT.                                                                                                             |
+| $table->mediumText('description');                 | Coluna equivalente MEDIUMTEXT.                                                                                                            |
+| $table->multiLineString('positions');              | Coluna equivalente MULTILINESTRING.                                                                                                       |
+| $table->multiPoint('positions');                   | Coluna equivalente a MULTIPOINT.                                                                                                          |
+| $table->multiPolygon('positions');                 | Coluna equivalente a MULTIPOLYGON.                                                                                                        |
+| $table->nullableTimestamps(0);                     | Coluna equivalente  do método.timestamps()                                                                                                              |
+| $table->point('position');                         | Coluna equivalente a POINT.                                                                                                               |
+| $table->polygon('positions');                      | Coluna equivalente a POLYGON.                                                                                                             |
+| $table->rememberToken();                           | Adiciona uma remember_tokencoluna equivalente anulável a VARCHAR (100).                                                                   |                                                                                                               |
+| $table->smallIncrements('id');                     | Coluna equivalente de SMALLINT NÃO ASSINADA (chave primária) de incremento automático.                                                        |
+| $table->smallInteger('votes');                     | Coluna equivalente SMALLINT.                                                                                                              |
+| $table->softDeletes('deleted_at', 0);              | Adiciona uma deleted_atcoluna equivalente TIMESTAMP anulável para exclusões dinâmicas com precisão (total de dígitos).                    |
+| $table->softDeletesTz('deleted_at', 0);            | Adiciona uma deleted_atcoluna equivalente TIMESTAMP (com fuso horário) anulável para exclusões dinâmicas com precisão (total de dígitos). |
+| $table->string('name', 100);                       | Coluna equivalente a VARCHAR com um tamanho.                                                                                          |
+| $table->text('description');                       | Coluna equivalente a TEXTO.                                                                                                               |
+| $table->time('sunrise', 0);                        | Coluna equivalente a TIME com precisão (total de dígitos).                                                                                |
+| $table->timeTz('sunrise', 0);                      | Coluna equivalente a TIME (com fuso horário) com precisão (dígitos totais).                                                               |
+| $table->timestamp('added_on', 0);                  | Coluna equivalente TIMESTAMP com precisão (dígitos totais).                                                                               |
+| $table->timestampTz('added_on', 0);                | Coluna equivalente TIMESTAMP (com fuso horário) com precisão (dígitos totais).                                                            |
+| $table->timestamps(0);                             | Adiciona colunas anuláveis created_ate updated_atequivalentes a TIMESTAMP com precisão (dígitos totais).                                  |
+| $table->timestampsTz(0);                           | Adiciona colunas anuláveis created_ate updated_atequivalentes a TIMESTAMP (com fuso horário) com precisão (total de dígitos).             |
+| $table->tinyIncrements('id');                      | Coluna equivalente com incremento automático UNSIGNED TINYINT (chave primária).                                                           |
+| $table->tinyInteger('votes');                      | Coluna equivalente a TINYINT.                                                                                                             |
+| $table->unsignedBigInteger('votes');               | Coluna equivalente BIGINT NÃO ASSINADA.                                                                                                   |
+| $table->unsignedDecimal('amount', 8, 2);           | Coluna equivalente DECIMAL NÃO ASSINADA, com precisão (dígitos totais) e escala (dígitos decimais).                                       |
+| $table->unsignedInteger('votes');                  | Coluna equivalente INTEGER NÃO ASSINADO.                                                                                                  |
+| $table->unsignedMediumInteger('votes');            | Coluna equivalente MEDIUMINT NÃO ASSINADA.                                                                                                |
+| $table->unsignedSmallInteger('votes');             | Coluna equivalente SMALLINT NÃO ASSINADA.                                                                                                 |
+| $table->unsignedTinyInteger('votes');              | Coluna equivalente TINYINT NÃO ASSINADA.                                                                                                  |
+| $table->uuid('id');                                | Coluna equivalente UUID.                                                                                                                  |
+| $table->year('birth_year');                        | Coluna equivalente a YEAR.                                                                                                                |
 
 ## Executando migrações
 
@@ -129,5 +206,6 @@ para as próximas execuções.
 Então quando rodamos o comando, `php artisan migrate`, por exemplo, estamos rodando apenas um lote com as migrações "pedentes".
 
 Caso queira rodar uma migração novamente é necessário executar os comandos `php artisan migrate:rollback` ou `php artisan migrate:reset`
+
 
 E agora que você concluiu mais um capitulo do tutorial já pode dar sequencia no próxima capitulo: [Models com eloquent](https://github.com/mateusKoppe/Laravel4Noobs/blob/master/2-Conceitos/6-models-eloquent.md)
