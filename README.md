@@ -26,9 +26,9 @@ Em progresso...
 1. [Configurando rotas](./2-Conceitos/2-Rotas.md)
 1. [Criando controllers](./2-Conceitos/3-Controllers.md)
 1. [Views com blade](./2-Conceitos/4-Views-blade.md)
-1. [Estruturando o banco de dados com migrations](./2-Conceitos/5-migrations.md)
-1. [Models com Eloquent](./2-Conceitos/6-models-eloquent.md)
-1. [Entendendo Request e Response](./2-Conceitos/7-request-response.md)
+1. [Estruturando o banco de dados com migrations](./2-Conceitos/5-Migrations.md)
+1. [Models com Eloquent](./2-Conceitos/6-Models-eloquent.md)
+1. [Entendendo Request e Response](./2-Conceitos/7-Request-response.md)
 1. [Usando e criando middlewares](./2-Conceitos/8-middlewares.md)
 
 ## Como Contribuir

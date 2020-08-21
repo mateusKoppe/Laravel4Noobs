@@ -36,3 +36,5 @@ php artisan serve
 ```
 
 Por padrão o programa iniciará na porta `:8080`, agora basta acessar [http://localhost:8080](http://localhost:8080) e prontinho, você iniciou um projeto Laravel ;D
+
+Com o seu projeto configurado você já pode aprender um pouco mais sobre o Cli do Laravel: [Entendendo Artisan](./4-Artisan.md)
