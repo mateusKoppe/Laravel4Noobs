@@ -64,11 +64,13 @@ Existem duas maneiras de se inicializar a criação de uma aplicação Laravel, 
 composer create-project --prefer-dist laravel/laravel NomeDaAplicação
 ```
 
-Com este comando você consegue criar o projeto através do COMPOSER, porém, nota-se que este comando é extremamente grande e pode ser chato lembrar dele a todo momento que você quiser construir alguma aplicação usando o Laravel, pensando nisso e em diversos outros fatores, a equipe de desenvolvimento do Laravel criou uma própia CLI para o Laravel, e manena qual você pode criar e versionar projetos dira mais simples. Para isso, antes de mais nada você deve instalar essa CLI em sua máquina através do comando:
+Com este comando você consegue criar o projeto através do COMPOSER, porém, nota-se que este comando é extremamente grande e pode ser chato lembrar dele a todo momento que você quiser construir alguma aplicação usando o Laravel, pensando nisso e em diversos outros fatores, a equipe de desenvolvimento do Laravel criou uma própia CLI para o Laravel, na qual você pode criar e versionar seus projetos de maneira mais simples e objetiva. Para isso, antes de mais nada você deve instalar essa CLI em sua máquina através do comando:
+
 
 ```bash
 composer global require laravel/installer
 ```
+
 
 Após o carregamento da instalação ser sucedido você terá a CLI do Laravel pronta para o uso em sua máquina, portanto agora você pode rodar o código:
 
@@ -89,6 +91,7 @@ Antes de mais nada, agora que você já criou sua aplicação Laravel, você dev
 ```bash
 cd NomeDaAplicação
 ```
+
 E assim você estará dentro da pasta de sua mais nova aplicação Laravel.
 
 Por fim, agora que já criamos nossa aplicação, que tal inciarmos ela e ver como ficou? Bem... vamos lá! existem diversas maneiras de se inicializar a sua aplicação Laravel e ver ela funcionando em sua máquina, você pode executá-la através de um servidor Apache (criado com o XAMPP por exemplo) ou até mesmo através do própio servidor nativo do PHP, utilizando o comando
