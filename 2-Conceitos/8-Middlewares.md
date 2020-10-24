@@ -94,6 +94,7 @@ protected $routeMiddleware = [
 
 ## Utilizando middlewares nas rotas
 Nosso middleware já está pronto, agora o incluiremos em nossas rotas:
+Para saber mais sobre rotas no Laravel [clique aqui](../2-Conceitos/2-Rotas.md)
 
 * Rota única
 ```php
