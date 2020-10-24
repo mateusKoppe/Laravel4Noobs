@@ -29,7 +29,7 @@ Em progresso...
 1. [Estruturando o banco de dados com migrations](./2-Conceitos/5-Migrations.md)
 1. [Models com Eloquent](./2-Conceitos/6-Models-eloquent.md)
 1. [Entendendo Request e Response](./2-Conceitos/7-Request-response.md)
-1. [Usando e criando middlewares](./2-Conceitos/8-middlewares.md)
+1. [Usando e criando middlewares](./2-Conceitos/8-Middlewares.md)
 
 ## Como Contribuir
 
