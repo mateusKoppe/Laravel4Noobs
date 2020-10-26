@@ -31,6 +31,9 @@ Em progresso...
 1. [Entendendo Request e Response](./2-Conceitos/7-Request-response.md)
 1. [Usando e criando middlewares](./2-Conceitos/8-Middlewares.md)
 
+### Cookbook
+1. [Próximos Passos](./3-Cookbook/1-Sobre-Cookbook.md)
+1. [Enviando Emails com Laravel](./3-Cookbook/2-Envio-emails.md)
 ## Como Contribuir
 
 Contribuições fazem com que a comunidade open source seja um lugar incrível para aprender, inspirar e criar. Todas contribuições
