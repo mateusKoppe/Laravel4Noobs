@@ -3,6 +3,8 @@
 ## Introdução
 O disparo de E-mails é uma constante funcionalidade em aplicações, desde verificações de autenticação, a notificações diversas, seu uso é bastante comum. Neste tópico aprenderemos a disparar E-mails utilizando o Laravel, este que inclusive, torna a tarefa extremamente acessível e de fácil implementação 
 
+Consulte a documentação do Laravel sobre Mail [clicando aqui](https://laravel.com/docs/8.x/mail).
+
 ## Serviço de Mailing
 Para aplicações em produção, o indicado é a utilização de um serviço especializado de email, para evitar que seu e-mail caia em caixas de span, e demais vantagens. Porém, para fins didáticos, usaremos o servidor SMPT do Google.
 SMTP, ou Simple Mail Transfer Protocol, é um protocolo responsável por realizar o envio de emails.
@@ -76,6 +78,8 @@ Com o Mail criado, nosso próximo objetivo é preenche-lo com informações, mai
 ## Adicionando uma View ao Mail
 Assim como você aprendeu nos tópicos anteriores, crie uma View utilizando o Blade, assim, poderemos utilizar essa View dentro do nosso e-mail:
 
+* obs: Criar uma View neste caso não é obrigatório, você pode simplesmente passar uma string como conteúdo. Criar uma View é apenas uma forma de organizar, e centralizar o conteúdo do nosso email em um arquivo, e claro, utilizar as vantagens do Blade
+
 No arquivo de View: `meuEmail.blade.php`
 ```php
 <h1>Email</h1>
@@ -102,7 +106,11 @@ Adicionamos agora o remetente e o destinatário:
 ## Enviando o E-mail
 Para enviar o email, criaremos um Controller, evitando criar funções dentro das nossas rotas:
 
+* obs: a função `Mail::send` pode ser utilizada em qualquer lugar da aplicação, não sendo necessário criar um controller apenas para dispará-la. Neste caso, o utilizaremos para manter nosso código organizado, mantendo essa única responsabilidade ao EmailController.
+
 ```php
+use App\Mail\meuEmail; // importamos o Email criado
+
 class EmailController extends Controller
 {
     public function send()
