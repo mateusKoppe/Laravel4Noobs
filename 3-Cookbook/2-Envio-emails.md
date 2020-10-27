@@ -4,7 +4,7 @@
 O disparo de E-mails é uma constante funcionalidade em aplicações, desde verificações de autenticação, a notificações diversas, seu uso é bastante comum. Neste tópico aprenderemos a disparar E-mails utilizando o Laravel, este que inclusive, torna a tarefa extremamente acessível e de fácil implementação 
 
 ## Serviço de Mailing
-Para aplicações em produção, o indicado é a utilização de um serviço especializado de email, para evitar que seu e-mail caia em caixas de span, e demais vantages. Porém, para fins didáticos, usaremos o servidor SMPT do Google.
+Para aplicações em produção, o indicado é a utilização de um serviço especializado de email, para evitar que seu e-mail caia em caixas de span, e demais vantagens. Porém, para fins didáticos, usaremos o servidor SMPT do Google.
 SMTP, ou Simple Mail Transfer Protocol, é um protocolo responsável por realizar o envio de emails.
 
 ## Configurando sua conta Gmail
