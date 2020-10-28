@@ -30,7 +30,7 @@ Neste arquivo você irá encontrar um array chamado "connections", dentro desse 
 
 ## Criando Models
 
-Você deve se lembrar que o Laravel é um framework que trabalha com o sistema MVC, e como todo bom sistema MVC, temos nossos arquivos de Models, aqui no Laravel não é diferente, os arquivos de Models se encontram na pasta 'app', porém, se você abrir a pasta 'app', você nota que ela tem mais outras subpastas dentro dela e um arquivo chamado 'User.php', só de pensar na quantidade de Models que você vai precisar montar já é previsível que a pasta 'app' ficará toda bagunçada no fim da criação de sua aplicação, cheia de arquivos soltos e subpastas, para facilitar nosso trabalho, vamos criar uma nova pasta chamada 'Models' e lá dentro vamos colocar todos nossos arquivos de Models da nossa aplicação Laravel, assim vamos nos manter mais organizados. Prontinho, agora que temos nossa pasta de Models, podemos criar nosso arquivo dentro dela, vamos começar com um exemplo simples para criação de Models, você pode simplesmente entrar na pasta de Models e criar o arquivo, porém, é importante que você siga boas práticas, então, lembre-se de sempre usar a primeira letra maiúscula e caso tenha duas palavras no nome de seu arquivo, elas devem estar juntas e cada uma deve começar com a primeira letra maíscula, por exemplo:
+Você deve se lembrar que o Laravel é um framework que trabalha com o sistema MVC, e como todo bom sistema MVC, temos nossos arquivos de Models, aqui no Laravel não é diferente, os arquivos de Models se encontram na pasta `app\Models`, podemos criar nosso arquivo dentro dela, vamos começar com um exemplo simples para criação de Models, você pode simplesmente entrar na pasta de Models e criar o arquivo, porém, é importante que você siga boas práticas, então, lembre-se de sempre usar a primeira letra maiúscula e caso tenha duas palavras no nome de seu arquivo, elas devem estar juntas e cada uma deve começar com a primeira letra maíscula, por exemplo:
 
 ```
 Products.php
@@ -45,7 +45,7 @@ ProductsModel.php
 Agora que você já criou o seu arquivo, é importante que você adicione um namespace à ele e que você herde a classe "Models" do Laravel antes de começar a usar ela na sua aplicação, pois é ela quem faz a conexão com o banco de dados e te permite usar os recursos do MySql dentro do Eloquent, para fazer isso é bem simples, você pode começar colocando o namespace do seu Model e após isso usar a classe do Laravel, por exemplo:
 
 ```php
-namespace SeuNamespace;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -59,9 +59,9 @@ class SuaClasse extends Model
 Caso você queira ficar mais rápido na criação de suas Models, você pode usar o terminal dentro da pasta raiz de seu projeto Laravel, o artisan oferece uma ferramenta para criar arquivos dentro do Laravel, uma delas é a criação de Models, para testar este método, você pode utilizar em seu terminal:
 
 ```bash
-php artisan make:model Models\\NomeDaModel
+php artisan make:model NomeDaModel
 ```
-> Obs: Note a extrema importância de especificar que você esta criando este arquivo dentro da pasta 'Models' que criamos anteriormente, caso você não específique esta informação, o Artisan automáticamente cria a Model dentro da pasta 'app' que se encontra na raiz da aplicação.
+
 
 Agora é só pressionar enter e está pronto, após entrar na pasta 'Models' de sua aplicação, você nota que seu arquivo foi criado com sucesso, e após abrir o arquivo você pode ver também que o própio artisan já criou o arquivo perfeitamente do modo que você precisa.
 
@@ -81,7 +81,7 @@ class NomeDaModel extends Model
 
 ## Configurando tabelas
 
-Note que em nenhum momento específicamos para o Laravel qual tabela queremos utilizar nessa nossa Model, porém, isso é bem simples, dentro de sua classe principal, adicione o seguinte código:
+Note que em nenhum momento específicamos para o Laravel qual tabela queremos utilizar nessa nossa Model. porém, isso é bem simples, dentro de sua classe principal, adicione o seguinte código:
 
 ```php
 
@@ -301,6 +301,6 @@ $data = [
 Products::create($data);
 ```
 
-O Eloquent é extremamante poderoso e eficiente quando se trata de banco de dados no Laravel, hoje você aprendeu como se cria uma Model no Laravel e como ela é importante para estruturação de seu banco de dados, neste artigo não se tem ainda um exemplo perfeito da aplicação de Models no Laravel, você pode pesquisar mais sobre o Eloquent do Laravel clicando [aqui](https://laravel.com/docs/7.x/eloquent), nessa documentação você irá aprender um pouco mais sobre o Eloquent e como ele pode te tornar um desenvolvedor Laravel mais eficiente.
+O Eloquent é extremamante poderoso e eficiente quando se trata de banco de dados no Laravel, hoje você aprendeu como se cria uma Model no Laravel e como ela é importante para estruturação de seu banco de dados, neste artigo não se tem ainda um exemplo perfeito da aplicação de Models no Laravel, você pode pesquisar mais sobre o Eloquent do Laravel clicando [aqui](https://laravel.com/docs/8.x/eloquent), nessa documentação você irá aprender um pouco mais sobre o Eloquent e como ele pode te tornar um desenvolvedor Laravel mais eficiente.
 
 E agora que você concluiu mais um capitulo do tutorial já pode dar sequencia no próxima capitulo: [Requests e Response](./7-Request-response.md)

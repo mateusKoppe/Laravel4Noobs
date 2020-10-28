@@ -13,11 +13,12 @@ Route::get('/products', function () {
 
 Aqui não parece ser um problema, é apenas uma linha, mas imagine se esse método precisar de várias linhas de lógica, o código pode ficar bem bagunçado dessa forma no meio de todas as outras rotas, por isso é uma melhor ideia usar as rotas apenas para mapear URIs e ações de controllers:
 
-Com isso em mente sabemos que é uma melhor mapear a rota da seguinte forma:
+Com isso em mente, mapearemos a rota passando um array contendo o `classname` do Controller e o metódo desejado:
 ```php
-Route::get('/products', 'ProductController@index');
-```
+use App\Http\Controllers\ProductController;
 
+Route::get('/products', [ProductController::class, 'index']);
+```
 E com isso basta desenvolver a ação `index` dentro do controller `ProductController`.
 
 ### Criando controllers
@@ -40,17 +41,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    //
+    public function index()
+    {
+        //...
+    }
 }
 ```
-
-para mapear as rotas com os métodos do controller é só usar a seguinte notação:
-
-```php
-Route::get('products', 'ProductController@index');
-```
-
-> Repare que somente o nome do controller é passado, não é preciso especificar todo o seu namespace, apenas o que vem depois de `App/Http/Controllers`, e após o nome do controller ser informado é só informar o método com o sinal `@`.
 
 Agora toda vez que alguma requisição combinar com o path `/products` o método `index` do controller `ProductController` será executado.
 
@@ -73,10 +69,12 @@ class HomeController extends Controller
 }
 ```
 
-E na rota é só chamar o controller sem nenhum método:
+Neste caso se deve passar apenas o `classname` do Controller, sem necessidade de um array.
 
 ```php
-Route::get('/home', 'HomeController');
+use App\Htpp\Controllers\HomeController;
+
+Route::get('/home', HomeController::class);
 ```
 
 Você também pode usar o Artisan para facilitar sua vida com isso, para isso basta passar o parametro `--invokable` como no exemplo abaixo:
@@ -119,7 +117,7 @@ php artisan make:controller ProductController --resource
 E a melhor parte, para mapear com as rotas basta usar o método `resource` da classe `Route` e todas as 7 ações serão mapeadas automáticamente:
 
 ```php
-Route::resource('products', 'ProductController');
+Route::resource('products', ProductController::class);
 ```
 
 E os nomes das rotas será por padrão `<nome-do-resource>.<metodo>`.
@@ -141,7 +139,7 @@ Caso você não precise de todos os métodos do resource você pode utilizara o 
 
 Use o método `only` para deixar explicito apenas quais métodos você quer usar:
 ```php
-Route::resource('photos', 'PhotoController')->only([
+Route::resource('photos', PhotoController::class)->only([
     'index', 'show'
 ]);
 ```
@@ -149,7 +147,7 @@ Route::resource('photos', 'PhotoController')->only([
 O método `except` faz exatamento ao contrário, use ele para excluir os método que você não pretende usar:
 
 ```php
-Route::resource('photos', 'PhotoController')->except([
+Route::resource('photos', PhotoController::class)->except([
     'create', 'store', 'update', 'destroy'
 ]);
 ```
@@ -164,14 +162,16 @@ php artisan make:controller API/UserController --api
 Com isso o controller criado irá implementar apenas as ações necessárias para desenvolver uma API e na rota basta usar o método `apiResource`:
 
 ```php
-Route::apiResource('users', 'API/UserController');
+use App\Htpp\Controllers\API\UserController;
+
+Route::apiResource('users', UserController::class);
 ```
 
 #### Resource relacionados
 Eventualmente você pode precisar definir uma rota que é filha de outra, como por exemplo comentários que pertecem a postagens, em casos como esses você vai precisar usar resource aninhados, para isso basta colocar um ponto `.` entre o nome do resource pai e o resource filho e com isso o Laravel já configurará as rotas automáticamente:
 
 ```php
-Route::resource('posts.comments', 'PostCommentController');
+Route::resource('posts.comments', PostCommentController::class);
 ```
 
 Com isso as rotas geradas seguirão o seguinte padrão:
