@@ -9,6 +9,7 @@ Assim que criado, a estrutura inicial de um projeto Laravel é a seguinte:
 │   ├── Http/
 │   │   ├── Controllers/
 │   │   └── Middleware/
+│   ├── Models/
 │   └── Providers/
 ├── bootstrap/
 ├── config/
@@ -33,7 +34,7 @@ Dentro da pasta `app` existem inicialmente outras pastas que serão explicadas a
 #### A pasta `Console`
 A pasta `app/Console/` contém comandos customizáveis para a sua aplicação que você pode criar para rodar com Artisan.
 
-Para saber como criar esses comandos leia a sessão [Criando comandos customizáveis (Em desenvolvimento...)]()
+Para saber como criar esses comandos leia a seção [Criando comandos customizáveis (Em desenvolvimento...)]()
 
 #### A pasta `Exceptions`
 A pasta `app/Exceptions` contém as `Exceptions` e `Handlers` de exceções de sua aplicação.
@@ -41,11 +42,11 @@ A pasta `app/Exceptions` contém as `Exceptions` e `Handlers` de exceções de s
 #### A pasta `Http`
 A pasta `app/Http` é responsável por toda lógica que envolvem as Requests e Responses da sua aplicação, essa pasta contém todos os seus controllers, middlewares, form requests e semelhantes.
 
-#### A pasta `Provider`
-A pasta `app/Provider` contém os Providers de sua aplicação, para mais informações consulte a sessão [Providers (em andamento...)]()
+#### A pasta `Models`
+A pasta `app/Models` contém os Models do Eloquent de sua aplicação, para mais informações consulte a seção [Models](../2-Conceitos/6-Models-eloquent.md)
 
-#### Os Models
-Como você possívelmente percebeu o Laravel por padrão não tem uma pasta específica para os Models como `app/Models` ou algo do tipo, como isso poderia ser confundido a framework decidiu por salvar os models por padrão na própria pasta `app` de dar a liberdade para o programador alterar criar a própria pasta para os models caso necessário.
+#### A pasta `Provider`
+A pasta `app/Provider` contém os Providers de sua aplicação, para mais informações consulte a seção [Providers (em andamento...)]()
 
 ### A pasta `bootstrap`
 Essa pastá contém os arquivos que irão iniciar a framework, além disso contém arquivos de cache da framework que servem para melhorar a sua performance.
@@ -56,7 +57,7 @@ Como o nome já sugere, é aqui que ficarão as configurações da aplicação, 
 ### A pasta `database`
 Assim como já sugere, essa pasta é responsável por tudo que envolve o banco de dados da sua aplicação, é aqui que ficarão as suas migrations, seus seeders e eventualmente suas factories.
 
-Você pode entender mais sobre isso lendo a sessão: [Database (Em desenvolvimento...)]().
+Você pode entender mais sobre isso lendo a seção: [Database (Em desenvolvimento...)]().
 
 ### A pasta `public`
 É nessa pasta que ficam os arquivos que serão acessados publicamente, como imagens, arquivos de JavaScript, CSS.
@@ -69,7 +70,7 @@ Essa pasta contém todas as suas views, o seus assets não compilados como JavaS
 ### A pasta `routes`
 Aqui estarão os arquivos de configuração das rotas de sua aplicação, os 4 arquivos geralmente são `api.php`, `channels.php`, `console.php` e `web.php`.
 
-Você pode aprender mais sobre rotas na sessão: [Configurando rotas](./2-Rotas.md).
+Você pode aprender mais sobre rotas na seção: [Configurando rotas](./2-Rotas.md).
 
 ### A pasta `storage`
 Essa pasta é dividida em 3 pastas: `app/`, `framework/`, `logs/`.
@@ -81,7 +82,7 @@ A pasta `storage/framework` armazena arquivos gerados pela framework e arquivos 
 A pasta `storage/logs` contém os logs da aplicação.
 
 ### A pasta `tests`
-A pasta `tests` contém os testes automatizados de sua aplicação. Inicialmente a pastá contém alguns exemplos de testes.
+A pasta `tests` contém os testes automatizados de sua aplicação. Inicialmente a pasta contém alguns exemplos de testes.
 
 ### Outras pastas
 Além disso o Laravel também possuí outras pastas que não vem inicialmente na aplicação mas podem ser fácilmente criadas.
