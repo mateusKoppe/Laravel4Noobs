@@ -96,7 +96,7 @@ Com esse padrão trabalhamos com 7 ações, sendo elas:
 - Store:  
 É nessa ação que o formuário para de criação será salvo. O seu URI é `/<path>` e o verbo HTTP é `POST`;
 
-- View:  
+- Show:  
 É nessa ação que será exibido mais informações sobre um item individualmente. O seu URI é `/<path>/<id>` e o verbo HTTP é `GET`;
 
 - Edit:  
