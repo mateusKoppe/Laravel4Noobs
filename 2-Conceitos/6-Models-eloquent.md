@@ -266,6 +266,7 @@ $products->product_line_id = $request->product_line_id ;
 $products->description = $request->description;
 $products->expiration_time= $request->expiration_time;
 $products->price = $request->price;
+$products->type = $request->type;
 
 $products->save();
 ```
@@ -281,7 +282,8 @@ class Products extends Model{
 	    'description',
 	    'expiration_time',
 	    'price',
-	    'product_line_id'
+	    'product_line_id',
+	    'type'
 	];
 }
 
@@ -295,11 +297,126 @@ $data = [
 'product_line_id' => request('product_line_id'),
 'description' => request('description'), 
 'expiration_time' => request('expiration_time'),
-'price' => request('price')
+'price' => request('price'),
+'type' => request('type')
 ];
 
 Products::create($data);
 ```
+
+## Accessors
+Tomando o exemplo acima, vamos supor que os `Products` com `type = 1` sejam do tipo "Food", `type = 2` sejam do tipo "Cleaning materials" e `type = 3` sejam "Electronics". Como você faria para exibir esses dados para o usuário? Nesse caso podemos utilizar os Accessors.
+
+Um Accessor transforma o valor do atributo escolhido no momento em que ele é **acessado**. Para definir um accessor você deve criar um método dentro da respectiva model seguindo o padrão de nomeclatura `getNomeDoAtributoAttribute`, como no exemplo abaixo:
+
+```php
+
+class Products extends Model{
+
+	protected $fillable = [
+	    'description',
+	    'expiration_time',
+	    'price',
+	    'product_line_id',
+	    'type'
+	];
+	
+	
+	public function getTypeAttribute($value)
+	{
+		switch($value){
+		case 1: 
+			return 'Food';
+		case 2: 
+			return 'Cleaning materials';
+		case 3:
+			return 'Electronics';
+		default:
+			return 'No category';
+		}
+	}
+}
+
+```
+
+Dessa forma, o Accessor será chamado automaticamente pelo Eloquent assim que tentarmos recuperar o valor de `$products->type`. Supondo que na nossa tabela de `Products` possuímos `id=1` e `type=2`, a saída ficaria assim:
+
+```php
+
+$products = Products::find(1);
+
+echo $products->type;
+
+//Saída: Cleaning materials
+
+```
+
+E se eu quiser o valor original do atributo? Simples, basta utilizar `getRawOriginal('atributo')`. Utilizando as mesmas condições acima, teríamos:
+
+
+```php
+
+$products = Products::find(1);
+
+echo $products->getRawOriginal('type');
+
+//Saída: 2
+
+```
+
+Você também pode utilizar mais de um atributo dentro do Accessor, para isso, você utiliza `$this->atributo`:
+
+```php
+
+class Users extends Model{
+
+	protected $fillable = [
+	    'first_name',
+	    'last_name',
+	    'mother_name',
+	    'email',
+	];
+	
+	
+	public function getFullNameAttribute()
+	{
+		 return "{$this->first_name} {$this->last_name}";
+	}
+	
+	//$user->full_name
+}
+
+```
+
+**LEMBRE-SE:** você deve acessar o atributo em **SNAKE CASE** (para `getFullNameAttribute` você usaria `full_name`)
+
+## Mutators
+Agora vamos supor que você precisa salvar o nome da mãe do usuário sempre em caixa alta (uppercase). Portanto, independente se o usuário enviar `minha mãe`, `Minha Mãe` ou `MINHA MÃE` o sistema sempre deverá salvar `MINHA MÃE`. Para isso podemos utilizar os Mutators.
+
+Diferente do Accessor, um Mutator transforma o valor do atributo escolhido no momento em que ele é **definido**, para definir um Mutator utilizamos `setNomeDoAtributoAttribute`, como no exemplo abaixo:
+
+```php
+
+class Users extends Model{
+
+	protected $fillable = [
+	    'first_name',
+	    'last_name',
+	    'mother_name',
+	    'email',
+	];
+	
+	
+	public function setMotherNameAttribute($value)
+	{
+		 $this->attributes['mother_name'] = mb_strtoupper($value, 'UTF-8');
+	}
+	
+}
+
+```
+
+Dessa forma, sempre que o usuário definir um valor para o atributo `mother_name` o Mutator será chamado para fazer a modificação. Simples, não?
 
 O Eloquent é extremamante poderoso e eficiente quando se trata de banco de dados no Laravel, hoje você aprendeu como se cria uma Model no Laravel e como ela é importante para estruturação de seu banco de dados, neste artigo não se tem ainda um exemplo perfeito da aplicação de Models no Laravel, você pode pesquisar mais sobre o Eloquent do Laravel clicando [aqui](https://laravel.com/docs/8.x/eloquent), nessa documentação você irá aprender um pouco mais sobre o Eloquent e como ele pode te tornar um desenvolvedor Laravel mais eficiente.
 
