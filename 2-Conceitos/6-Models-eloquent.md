@@ -420,4 +420,4 @@ Dessa forma, sempre que o usuário definir um valor para o atributo `mother_name
 
 O Eloquent é extremamante poderoso e eficiente quando se trata de banco de dados no Laravel, hoje você aprendeu como se cria uma Model no Laravel e como ela é importante para estruturação de seu banco de dados, neste artigo não se tem ainda um exemplo perfeito da aplicação de Models no Laravel, você pode pesquisar mais sobre o Eloquent do Laravel clicando [aqui](https://laravel.com/docs/8.x/eloquent), nessa documentação você irá aprender um pouco mais sobre o Eloquent e como ele pode te tornar um desenvolvedor Laravel mais eficiente.
 
-E agora que você concluiu mais um capitulo do tutorial já pode dar sequencia no próxima capitulo: [Requests e Response](./7-Request-response.md)
+E agora que você concluiu mais um capitulo do tutorial já pode dar sequencia no próxima capitulo: [Requests e Response](./7.1-Request-response.md)
