@@ -67,7 +67,7 @@ Caso você precise de múltiplos parâmetros você irá os receber na mesma sequ
 
 ```php
 Route::get('posts/{post}/comentarios/{comment}', function ($postId, $commentId) {
-    return "O post de id: $id e comentário $commentId";
+    return "O post de id: $postId e comentário $commentId";
 });
 ```
 
