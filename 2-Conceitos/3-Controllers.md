@@ -153,7 +153,7 @@ Route::resource('photos', PhotoController::class)->except([
 ```
 
 #### API Resource
-Está desenvolvendo uma API? Se for o caso você não vai precisar dos métodos `create` e `edit`, mas você não precisa excluir eles manualmente, quando for crir o controller com Artisan basta usar o parametro `--api`:
+Está desenvolvendo uma API? Se for o caso você não vai precisar dos métodos `create` e `edit`, mas você não precisa excluir eles manualmente, quando for criar o controller com Artisan basta usar o parametro `--api`:
 
 ```bash
 php artisan make:controller API/UserController --api
