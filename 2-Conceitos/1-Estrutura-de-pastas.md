@@ -57,7 +57,7 @@ Como o nome já sugere, é aqui que ficarão as configurações da aplicação, 
 ### A pasta `database`
 Assim como já sugere, essa pasta é responsável por tudo que envolve o banco de dados da sua aplicação, é aqui que ficarão as suas migrations, seus seeders e eventualmente suas factories.
 
-Você pode entender mais sobre isso lendo a seção: [Database (Em desenvolvimento...)]().
+Você pode entender mais sobre isso lendo a seção: [Migrations](./5-Migrations.md).
 
 ### A pasta `public`
 É nessa pasta que ficam os arquivos que serão acessados publicamente, como imagens, arquivos de JavaScript, CSS.
