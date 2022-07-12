@@ -34,7 +34,7 @@ Dentro da pasta `app` existem inicialmente outras pastas que serão explicadas a
 #### A pasta `Console`
 A pasta `app/Console/` contém comandos customizáveis para a sua aplicação que você pode criar para rodar com Artisan.
 
-Para saber como criar esses comandos leia a seção [Criando comandos customizáveis (Em desenvolvimento...)]()
+Para saber como criar esses comandos leia a seção [Console](./9-Console.md)
 
 #### A pasta `Exceptions`
 A pasta `app/Exceptions` contém as `Exceptions` e `Handlers` de exceções de sua aplicação.
