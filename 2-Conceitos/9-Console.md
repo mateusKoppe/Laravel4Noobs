@@ -18,7 +18,7 @@ Após criar a classe de Comando, devemos definir as propriedades que esse comand
 
 O método `handle()` é o que será chamado ao executar seu comando no console.
 
-Observe no exemplo abaixo que podemos indicar parâmetros no método handle. O contêiner de serviço Laravel injetará automaticamente todos os parâmetros deste método.
+Observe no exemplo abaixo que podemos indicar parâmetros no método handle. O container de serviço Laravel injetará automaticamente todos os parâmetros deste método.
 
 ```php
 <?php
