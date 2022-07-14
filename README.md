@@ -31,6 +31,7 @@ Em progresso...
 1. [Entendendo Request e Response](./2-Conceitos/7-Request-response.md)
 1. [Usando e criando middlewares](./2-Conceitos/8-Middlewares.md)
 1. [Criando Comandos para o Artisan](./2-Conceitos/9-Console.md)
+1. [Providers](./2-Conceitos/10-Providers.md)
 
 ### Cookbook
 1. [Próximos Passos](./3-Cookbook/1-Sobre-Cookbook.md)
