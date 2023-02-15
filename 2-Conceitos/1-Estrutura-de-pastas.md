@@ -46,7 +46,7 @@ A pasta `app/Http` é responsável por toda lógica que envolvem as Requests e R
 A pasta `app/Models` contém os Models do Eloquent de sua aplicação, para mais informações consulte a seção [Models](../2-Conceitos/6-Models-eloquent.md)
 
 #### A pasta `Provider`
-A pasta `app/Provider` contém os Providers de sua aplicação, para mais informações consulte a seção [Providers (em andamento...)]()
+A pasta `app/Provider` contém os Providers de sua aplicação, para mais informações consulte a seção [Providers](../2-Conceitos/10-Providers.md)
 
 ### A pasta `bootstrap`
 Essa pastá contém os arquivos que irão iniciar a framework, além disso contém arquivos de cache da framework que servem para melhorar a sua performance.
